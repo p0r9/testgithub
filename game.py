@@ -3,16 +3,18 @@ from tkinter import*
 def Gamefuntion(event):
     CorrectNumber = 132
     UserGuess = -1
-    while UserGuess != CorrectNumber :
+    for i in range (5) : 
         UserGuess = int(TextboxGuess.get())
-        if UserGuess > 1000 or UserGuess < 0 :
-            LabelText.configure (text='input nubmer 0-1000 !!!')
+        if UserGuess >  1000 or UserGuess  < 0 :
+            LabelText.configure (text='Input Wrong!!!')
+        elif  UserGuess == CorrectNumber :
+            LabelText.configure (text='Correct!! :D')
         elif UserGuess > CorrectNumber :
-            LabelText.configure (text='Too Large xD')
+            LabelText.configure (text='มากเกินไป')
         elif UserGuess < CorrectNumber :
-            LabelText.configure (text='Too Small xD')
-        elif UserGuess == CorrectNumber :
-            LabelText.configure ('Correct!! :D')
+            LabelText.configure (text='น้อยเกินไป')
+        else :
+            LabelText.configure (text='Input Wrong!!!')
 
 MainWindow = Tk()
 LabelGuess = Label(MainWindow,text='ใส่ตัวเลข 1-1000',font=('arial,18'))
@@ -24,4 +26,5 @@ Enterbutton.grid(row=2,column=0)
 Enterbutton.bind('<Button-1>',Gamefuntion)
 LabelText = Label(MainWindow,text='text',font=('arial,18'))
 LabelText.grid(row=3,column=0)
+LabelText.bind ('<Button-1>',Gamefuntion)
 MainWindow.mainloop()
