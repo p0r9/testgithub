@@ -5,7 +5,7 @@ CorrectNumber = randint(0,1001)
 print (CorrectNumber)
 def Gamefuntion(event):
     UserGuess = int(TextboxGuess.get())
-    if UserGuess < 0 or UserGuess  < 0 :
+    if UserGuess > 0 or UserGuess  < 1000 :
         LabelText.configure (text='Input Wrong!!!',fg='red')
     elif  UserGuess == CorrectNumber :
         LabelText.configure (text='Correct!! :D',fg='green')
